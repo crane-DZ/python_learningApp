@@ -15,6 +15,11 @@ book/
 # 重置练习时的自动备份（个人练习记录，不进仓库）
 notebooks/_练习记录/
 
-# 动手区运行时会生成，不算产物
+# 练习过程产物（示例单元和动手区运行时生成）
 data/mine.txt
 data/my_notes.txt
+data/guest.txt
+data/demo_write.txt
+data/demo.json
+# 临时脚本（生成用，不入库）
+_tmp_*

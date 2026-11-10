@@ -46,7 +46,7 @@ foreach ($t in $templates) {
     $done++
 }
 
-foreach ($f in @("data\mine.txt", "data\my_notes.txt")) {
+foreach ($f in @("data\mine.txt", "data\my_notes.txt", "data\guest.txt", "data\demo_write.txt", "data\demo.json")) {
     $p = Join-Path $root $f
     if (Test-Path -LiteralPath $p) { Remove-Item -LiteralPath $p -Force }
 }
