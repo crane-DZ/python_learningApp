@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# uv：本机沙箱下需把缓存指到工程内（见 README）
+.uvcache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 教材 PDF：188 MB，只放本机，不进仓库
+book/
+
+# 动手区运行时会生成，不算产物
+data/mine.txt
+data/my_notes.txt
