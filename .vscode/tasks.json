@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🔄 重置练习（先备份）",
+      "detail": "把 notebook 还原成空白版，动手区清空；当前答案自动备份到 notebooks/_练习记录/",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "tools\\reset_practice.ps1"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true,
+        "focus": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "📂 打开练习记录",
+      "detail": "打开 notebooks/_练习记录/，里面有每次重置前自动备份的带答案版本",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "Start-Process explorer -ArgumentList '${workspaceFolder}\\notebooks\\_练习记录'"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

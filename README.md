@@ -28,6 +28,28 @@ uv sync
 > 先设缓存目录再跑：`$env:UV_CACHE_DIR = "$PWD\.uvcache"; uv sync`
 > （`.uvcache/` 已加入 .gitignore）
 
+## 练完一遍想重来（重置）
+
+按保留程度分三档：
+
+| 想保留 | 怎么做 | 结果 |
+|---|---|---|
+| 只清输出 | 工具栏 **Clear All Outputs** 或 **Restart** 内核 | 代码还在，自检计数归零 |
+| 从空白重做 | `Ctrl+Shift+P` → **Tasks: Run Task** → **🔄 重置练习（先备份）** | 当前答案先备份到 `notebooks/_练习记录/时间戳.ipynb`，再整本还原成空白版 |
+| 对照复习 | **📂 打开练习记录** 任务 | 打开备份目录，左边答案右边空白 |
+
+命令行等价（没有 VS Code 或想写进脚本时）：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\reset_practice.ps1
+# 加 -NoBackup 就不备份，直接覆盖（不建议）
+```
+
+**机制**：`notebooks/_template/` 放空白母版，重置时脚本把它覆盖回 `notebooks/`，并顺手删掉 `data/mine.txt`、`data/my_notes.txt` 这类产物。
+以后新增课件（第 2 本、第 3 本）时，把空白版复制进 `notebooks/_template/`，就会自动纳入一键重置范围。
+
+> 重置后 VS Code 会提示「文件已在磁盘上更改」→ 点 **Revert**；再点 **Restart** 重启内核，让 `check()` 从 0 计。
+
 ## 这本笔记怎么组织
 
 每一关固定五个单元：
