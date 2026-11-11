@@ -84,14 +84,21 @@ data/
 
 ## 发给朋友用
 
-**方式 A：发压缩包（她需要装环境，约 15 分钟）**
+**方式 A：从 GitHub 克隆（她需要装环境，约 15 分钟）**
+
+仓库地址：<https://github.com/crane-DZ/python_learningApp>
 
 ```powershell
-# 在本目录执行，排除书和虚拟环境
-Compress-Archive -Path .\notebooks, .\data, .\tools, .\.vscode, .\pyproject.toml, .\uv.lock, .\README.md -DestinationPath ..\python_learnApp_share.zip
+git clone https://github.com/crane-DZ/python_learningApp.git python_learnApp
+cd python_learnApp
+uv sync                     # 装 ipykernel + numpy
 ```
 
-她要做的：装 VS Code + uv → 解压 → 打开文件夹 → `uv sync` → 选内核 → 开始。
+然后：VS Code 打开刚克隆的**文件夹** → 打开 `notebooks/01_Python基础_第1-2周.ipynb` → 右上角选内核 `Python (python_learnApp/.venv)` → 从上往下 `Shift+Enter`。
+
+她需要先装三样：**Git**、**VS Code**、**uv**（`winget install astral-sh.uv`）。没有 Git 也行：仓库页面 → `Code` → `Download ZIP`，解压后同样 `uv sync`。
+
+> 克隆下来**不含** `book/` 里的教材 PDF（188 MB，只在你本机），所以她对照页码时要有纸质书或自己那份 PDF；没有书也能练，讲解里已经把要点和页码都写全了。
 
 **方式 B：Colab 直接打开（零安装，需要仓库公开 + Google 账号）**
 
